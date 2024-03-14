@@ -2,8 +2,8 @@
 
   <div class="app-wrapper">
     <div class="row justify-content-center">
-      <div class="mt-5 weather-container">
-        <h1 class="">Weather App</h1>
+      <div class="weather-container">
+        <h1 class="mt-5">Weather App</h1>
         <input @keyup.enter="fetchWeather" class="br-1 w-100" type="text" placeholder="Enter location" v-model="country">
         <button class="btn btn-primary btn-large px-5 py-2 w-100" @click="fetchWeather">Get Weather</button>
         <div class="result-container bg-light br-1 w-100">
@@ -87,6 +87,7 @@ export default {
 }
 
 .weather-container {
+    padding-top: 120px;
     width: 500px;
     height: 500px;
     display: flex;
