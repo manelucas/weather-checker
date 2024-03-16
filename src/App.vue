@@ -1,39 +1,40 @@
 <template>
-
-  <div class="app-wrapper">
-    <div class="row justify-content-center">
-      <div class="weather-container">
-        <h1 class="mt-5">Weather App</h1>
-        <input @keyup.enter="fetchWeather" class="br-1 w-100" type="text" placeholder="Enter location" v-model="country">
-        <button class="btn btn-primary btn-large px-5 py-2 w-100" @click="fetchWeather">Get Weather</button>
-        <div class="result-container bg-light br-1 w-100">
-          <div v-if="weatherData && !error">
-            <div v-for="(weather, index) in weatherData" :key="index" class="d-flex flex-column gap-3">
-              <div class="d-flex align-items-center gap-2">
-                <span class="text-bold fs-5">Location:</span>
-                <span class="fs-5">{{weather.name}}, {{weather.sys.country}}</span>
-              </div>
-              <div class="d-flex align-items-center gap-2">
-                <span class="text-bold fs-5">Temperature:</span>
-                <span class="fs-5">{{ (weather.main.temp - 273.15).toFixed(0) }} °C</span>
-              </div>
-              <div class="d-flex align-items-center gap-2">
-                <span class="text-bold fs-5">Feels like:</span>
-                <span class="fs-5">{{ (weather.main.feels_like - 273.15).toFixed(0) }} °C</span>
-              </div>
-              <div class="d-flex align-items-center gap-2">
-                <span class="text-bold fs-5">Description:</span>
-                <span class="fs-5">{{weather.weather[0].main}}</span>
+  <div class="d-flex">
+    <div class="app-wrapper col-xs-12 col-md-6 p-4">
+      <div class="row justify-content-center">
+        <div class="weather-container">
+          <h1 class="mt-5">Weather App</h1>
+          <input @keyup.enter="fetchWeather" class="br-1 w-100" type="text" placeholder="Enter location" v-model="country">
+          <button class="btn btn-primary btn-large px-5 py-2 w-100" @click="fetchWeather">Get Weather</button>
+          <div class="result-container bg-light br-1 w-100">
+            <div v-if="weatherData && !error">
+              <div v-for="(weather, index) in weatherData" :key="index" class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-bold fs-5">Location:</span>
+                  <span class="fs-5">{{weather.name}}, {{weather.sys.country}}</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-bold fs-5">Temperature:</span>
+                  <span class="fs-5">{{ (weather.main.temp - 273.15).toFixed(0) }} °C</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-bold fs-5">Feels like:</span>
+                  <span class="fs-5">{{ (weather.main.feels_like - 273.15).toFixed(0) }} °C</span>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                  <span class="text-bold fs-5">Description:</span>
+                  <span class="fs-5">{{weather.weather[0].main}}</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div v-if="error" class="h-100 d-flex justify-content-center align-items-center flex-column">
-            <p class="fs-5">
-              Not found. Please try again
-            </p>
-            <div class="fs-5">
-              <span class="text-success px-2">Example:</span>
-              <span>Bristol, GB</span>
+            <div v-if="error" class="h-100 d-flex justify-content-center align-items-center flex-column">
+              <p class="fs-5">
+                Not found. Please try again
+              </p>
+              <div class="fs-5">
+                <span class="text-success px-2">Example:</span>
+                <span>Bristol, GB</span>
+              </div>
             </div>
           </div>
         </div>
@@ -81,14 +82,12 @@ export default {
 
 .app-wrapper {
   background-color: rgba(197, 236, 232, 0.5);
-  width: 600px;
   height: 100vh;
   margin: 0 auto;
 }
 
 .weather-container {
     padding-top: 120px;
-    width: 500px;
     height: 500px;
     display: flex;
     align-items: center;
@@ -103,8 +102,7 @@ input {
 
 .result-container {
     border: 2px solid grey;
-    width: 400px;
-    min-height: 300px;
+    min-height: 250px;
     padding: 30px;
 }
 
@@ -116,5 +114,8 @@ input {
   font-weight: 700;
 }
 
+@media only screen and (max-width: 600px) {
+
+}
 
 </style>
